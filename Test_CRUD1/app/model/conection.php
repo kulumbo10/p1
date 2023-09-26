@@ -5,15 +5,16 @@ namespace App\Model;
 //class responsael por estabelecer conexao com o banco de dados
 class Conection{
     private static $instance;
-    public static function getcon(){
+    public static function getConn(){
 
-        if(!isset(self::$instance)):
-            self::$instance = new PDO/('mysql: host = localhost dbname = pdo; charset = utf8', 'root','');
-        else:
-
-        return self::$instance;
-        // se nao usar o endif vai dar erro na declaracao do return
+        if(!isset(self::$instance)): // verifica se nao existe uma instancia da conection cria uma
+            self::$instance = new \PDO('mysql: host = localhost dbname = pdo; charset = utf8', 'root', " ");
         endif;
+
+        return self::$instance; //retorna a instancia
+
+        // se nao usar o endif vai dar erro na declaracao do return
+       
 
     }
     
